@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Site;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Models\Site\MenuSite;
 
 class SiteController extends Controller
 {
@@ -14,7 +15,9 @@ class SiteController extends Controller
      */
     public function index()
     {
-        return view('public.home');
+        $menus = MenuSite::with('subMenuSite')->get();
+
+        return view('public.home')->with(compact('menus'));
     }
 
     /**

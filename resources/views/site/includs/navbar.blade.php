@@ -18,13 +18,13 @@
                         <ul class="navbar-nav mr-auto">
                             @foreach($menus as $menu)
                                 @if ($menu->subMenuSite->count() > 0)
-                                    @component('public.components.subMenu', ['menu' => $menu]) @endcomponent
+                                    @component('site.components.subMenu', ['menu' => $menu]) @endcomponent
                                 @else
-                                    @component('public.components.menu', ['menu' => $menu]) @endcomponent
+                                    @component('site.components.menu', ['menu' => $menu]) @endcomponent
                                 @endif
                             @endforeach
                         </ul>
-                        @include('public.includs.card')
+                        @include('site.includs.card')
                     </div>
                 </div>
             </nav>

@@ -17,7 +17,7 @@ class SiteController extends Controller
     {
         $menus = MenuSite::with('subMenuSite')->get();
 
-        return view('public.home')->with(compact('menus'));
+        return view('site.home')->with(compact('menus'));
     }
 
     /**

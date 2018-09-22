@@ -15,8 +15,6 @@ class CreateSubMenuSiteItemsTable extends Migration
     {
         Schema::create('sub_menu_site_items', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('menu_site_id');
-            $table->foreign('menu_site_id')->references('id')->on('menu_site')->onDelete('cascade');
             $table->unsignedInteger('sub_menu_site_id');
             $table->foreign('sub_menu_site_id')->references('id')->on('sub_menu_site')->onDelete('cascade');
             $table->string('titulo', 50)->unique();

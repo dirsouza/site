@@ -1,4 +1,4 @@
-@extends('public.layout.layout')
+@extends('site.layout.layout')
 
 @section('title', 'Site')
 
@@ -6,9 +6,9 @@
     <!-- navbar-->
     <header class="header mb-5">
 
-        @include('public.includs.top')
+        @include('site.includs.top')
 
-        @include('public.includs.navbar')
+        @include('site.includs.navbar')
 
     </header>
     <div id="all">

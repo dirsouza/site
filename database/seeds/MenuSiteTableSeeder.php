@@ -20,12 +20,12 @@ class MenuSiteTableSeeder extends Seeder
             ],
             'produtos'  => [
                 'titulo'    => 'Produtos',
-                'url'       => '/products',
+                'url'       => '/protutos',
                 'status'    => 1
             ],
             'contato'   => [
                 'titulo'    => 'Contato',
-                'url'       => '/contact',
+                'url'       => '/contato',
                 'status'    => 1
             ]
         ];

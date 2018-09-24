@@ -1,8 +1,8 @@
             <nav class="navbar navbar-expand-lg">
                 <div class="container">
                     <a href="index.html" class="navbar-brand home">
-                        <img src="public/img/logo.png" alt="Obaju logo" class="d-none d-md-inline-block">
-                        <img src="public/img/logo-small.png" alt="Obaju logo" class="d-inline-block d-md-none">
+                        <img src="{{ asset('public/img/logo.png') }}" alt="Obaju logo" class="d-none d-md-inline-block">
+                        <img src="{{ asset('public/img/logo-small.png') }}" alt="Obaju logo" class="d-inline-block d-md-none">
                         <span class="sr-only">Obaju - go to homepage</span>
                     </a>
                     <div class="navbar-buttons">
@@ -17,7 +17,7 @@
                     <div id="navigation" class="collapse navbar-collapse">
                         <ul class="navbar-nav mr-auto">
                             @foreach($menus as $menu)
-                                @if ($menu->subMenuSite->count() > 0)
+                                @if ($menu->categorias->count() > 0)
                                     @component('site.components.subMenu', ['menu' => $menu]) @endcomponent
                                 @else
                                     @component('site.components.menu', ['menu' => $menu]) @endcomponent

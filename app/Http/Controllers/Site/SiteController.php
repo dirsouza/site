@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Site;
 
-use Illuminate\Http\Request;
+use App\Http\Models\Site\Carrossel;
+use App\Http\Models\Site\Categoria;
+use App\Http\Models\Site\Produto;
 use App\Http\Controllers\Controller;
 use App\Http\Models\Site\MenuSite;
 
@@ -15,74 +17,31 @@ class SiteController extends Controller
      */
     public function index()
     {
-        $menus = MenuSite::with('subMenuSite')->get();
+        $menus = MenuSite::with('categorias')->get();
+        $carrossel = Carrossel::with('produto')->get();
 
-        return view('site.home')->with(compact('menus'));
+        return view('site.home')->with(compact('menus', 'carrossel'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function listaProdutos($categoria, $item)
     {
-        //
+        $menus = MenuSite::with('categorias')->get();
+        $carrossel = Carrossel::with('produto')->get();
+
+        return view('site.home')->with(compact('menus', 'carrossel'));
+//        dd(
+//            Categoria::with('categoriaItem')
+//            ->where('titulo', $categoria)
+//            ->get(),
+//            Produto::where('titulo', $item)->get()
+//        );
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function contato()
     {
-        //
-    }
+        $menus = MenuSite::with('categorias')->get();
+        $carrossel = Carrossel::with('produto')->get();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return view('site.home')->with(compact('menus', 'carrossel'));
     }
 }

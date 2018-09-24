@@ -12,12 +12,16 @@ $(function () {
 
 
     $('#main-slider').owlCarousel({
+        loop:true,
         items: 1,
         nav: false,
         dots: true,
         autoplay: true,
         autoplayHoverPause: true,
-        dotsSpeed: 400
+        responsiveClass:true,
+        dotsSpeed: 200,
+        animateOut: 'fadeOutLeft',
+        animateIn: 'zoomIn',
     });
 
 
@@ -151,7 +155,6 @@ function utils() {
     /* click on the box activates the link in it */
 
     $('.box.clickable').on('click', function (e) {
-
         window.location = $(this).find('a').attr('href');
     });
     /* external links in new window*/

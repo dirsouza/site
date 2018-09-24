@@ -16,13 +16,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div id="main-slider" class="owl-carousel owl-theme">
-                            <div class="item"><img src="public/img/main-slider1.jpg" alt="" class="img-fluid"></div>
-                            <div class="item"><img src="public/img/main-slider2.jpg" alt="" class="img-fluid"></div>
-                            <div class="item"><img src="public/img/main-slider3.jpg" alt="" class="img-fluid"></div>
-                            <div class="item"><img src="public/img/main-slider4.jpg" alt="" class="img-fluid"></div>
-                        </div>
-                        <!-- /#main-slider-->
+
+                        @component('site.components.carousel', ['carrossel' => $carrossel]) @endcomponent
+
                     </div>
                 </div>
             </div>
@@ -33,25 +29,28 @@
             <div id="advantages">
                 <div class="container">
                     <div class="row mb-4">
-                        <div class="col-md-4">
-                            <div class="box clickable d-flex flex-column justify-content-center mb-0 h-100">
+                        <div class="col-md-3">
+                            <div class="box d-flex flex-column justify-content-center mb-0 h-100">
                                 <div class="icon"><i class="fa fa-heart"></i></div>
-                                <h3><a href="#">We love our customers</a></h3>
-                                <p class="mb-0">We are known to provide best possible service ever</p>
+                                <h3>Nós amamos nossos clientes</h3>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="box clickable d-flex flex-column justify-content-center mb-0 h-100">
+                        <div class="col-md-3">
+                            <div class="box d-flex flex-column justify-content-center mb-0 h-100">
                                 <div class="icon"><i class="fa fa-tags"></i></div>
-                                <h3><a href="#">Best prices</a></h3>
-                                <p class="mb-0">You can check that the height of the boxes adjust when longer text like this one is used in one of them.</p>
+                                <h3>Melhores preços</h3>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="box clickable d-flex flex-column justify-content-center mb-0 h-100">
+                        <div class="col-md-3">
+                            <div class="box d-flex flex-column justify-content-center mb-0 h-100">
+                                <div class="icon"><i class="fa fa-wrench"></i></div>
+                                <h3>Assistência técnica</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="box d-flex flex-column justify-content-center mb-0 h-100">
                                 <div class="icon"><i class="fa fa-thumbs-up"></i></div>
-                                <h3><a href="#">100% satisfaction guaranteed</a></h3>
-                                <p class="mb-0">Free returns on everything for 3 months.</p>
+                                <h3>100% de satisfação garantida</h3>
                             </div>
                         </div>
                     </div>

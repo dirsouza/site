@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Site;
 
+use App\Http\Models\Site\CardVantagem;
 use App\Http\Models\Site\Carrossel;
 use App\Http\Models\Site\Categoria;
 use App\Http\Models\Site\Produto;
@@ -19,8 +20,9 @@ class SiteController extends Controller
     {
         $menus = MenuSite::with('categorias')->get();
         $carrossel = Carrossel::with('produto')->get();
+        $cardVantagens = CardVantagem::where('status', 1)->orderBy('posicao')->get();
 
-        return view('site.home')->with(compact('menus', 'carrossel'));
+        return view('site.home')->with(compact('menus', 'carrossel', 'cardVantagens'));
     }
 
     public function listaProdutos($categoria, $item)

@@ -15,21 +15,24 @@ class MenuSiteTableSeeder extends Seeder
         $arrays = [
             'home'      => [
                 'titulo'        => 'Home',
-                'url'           => '/',
+                'url'           => 'site.index',
+                'posicao'       => 1,
                 'status'        => 1,
                 'created_at'    => date('Y-m-d H:i:s'),
                 'updated_at'    => date('Y-m-d H:i:s')
             ],
             'produtos'  => [
                 'titulo'        => 'Produtos',
-                'url'           => '/produtos',
+                'url'           => 'site.produtos',
+                'posicao'       => 2,
                 'status'        => 1,
                 'created_at'    => date('Y-m-d H:i:s'),
                 'updated_at'    => date('Y-m-d H:i:s')
             ],
             'contato'   => [
                 'titulo'        => 'Contato',
-                'url'           => '/contato',
+                'url'           => 'site.contato',
+                'posicao'       => 3,
                 'status'        => 1,
                 'created_at'    => date('Y-m-d H:i:s'),
                 'updated_at'    => date('Y-m-d H:i:s')
@@ -37,8 +40,8 @@ class MenuSiteTableSeeder extends Seeder
         ];
 
         foreach ($arrays as $array) {
-            $menus = DB::table('menu_site')->get();
-            if (in_array($array['titulo'], $menus->toArray())) {
+            $menus = DB::table('menu_site')->where('titulo', $array['titulo'])->first();
+            if (empty($menus)) {
                 DB::table('menu_site')->insert($array);
             }
         }

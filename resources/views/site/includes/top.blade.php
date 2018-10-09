@@ -42,10 +42,6 @@
 
 @push('scripts')
     <script>
-        $('#login-modal').on('shown.bs.modal', function() {
-            $('#email-modal').trigger('focus');
-        });
-
         // implementar login via api
     </script>
 @endpush

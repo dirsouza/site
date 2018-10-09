@@ -16,6 +16,8 @@ class ProdutosTableSeeder extends Seeder
                 [
                     'categoria_id'  => 1,
                     'titulo'        => 'Ovos',
+                    'titulo_url'    => 'ovos',
+                    'posicao'       => 1,
                     'status'        => 1,
                     'created_at'    => date('Y-m-d H:i:s'),
                     'updated_at'    => date('Y-m-d H:i:s')
@@ -23,6 +25,8 @@ class ProdutosTableSeeder extends Seeder
                 [
                     'categoria_id'  => 1,
                     'titulo'        => 'Ração',
+                    'titulo_url'    => 'racao',
+                    'posicao'       => 2,
                     'status'        => 1,
                     'created_at'    => date('Y-m-d H:i:s'),
                     'updated_at'    => date('Y-m-d H:i:s')
@@ -32,6 +36,8 @@ class ProdutosTableSeeder extends Seeder
                 [
                     'categoria_id'  => 2,
                     'titulo'        => 'Chocadeiras',
+                    'titulo_url'    => 'chocadeiras',
+                    'posicao'       => 1,
                     'status'        => 1,
                     'created_at'    => date('Y-m-d H:i:s'),
                     'updated_at'    => date('Y-m-d H:i:s')
@@ -39,6 +45,8 @@ class ProdutosTableSeeder extends Seeder
                 [
                     'categoria_id'  => 2,
                     'titulo'        => 'Bebedouros',
+                    'titulo_url'    => 'bebedouros',
+                    'posicao'       => 2,
                     'status'        => 1,
                     'created_at'    => date('Y-m-d H:i:s'),
                     'updated_at'    => date('Y-m-d H:i:s')
@@ -48,8 +56,8 @@ class ProdutosTableSeeder extends Seeder
 
         foreach ($arrays as $_arrays) {
             foreach ($_arrays as $array) {
-                $produtos = DB::table('produtos')->get();
-                if (in_array($array['titulo'], $produtos->toArray())) {
+                $produtos = DB::table('produtos')->where('titulo', $array['titulo'])->first();
+                if (empty($produtos)) {
                     DB::table('produtos')->insert($array);
                 }
             }

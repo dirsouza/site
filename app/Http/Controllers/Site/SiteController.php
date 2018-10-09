@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Site;
 
+use App\Helpers\FunctionsHelpers;
 use App\Http\Models\Site\CardVantagem;
 use App\Http\Models\Site\Carrossel;
 use App\Http\Models\Site\Categoria;
@@ -18,32 +19,45 @@ class SiteController extends Controller
      */
     public function index()
     {
-        $menus = MenuSite::with('categorias')->get();
-        $carrossel = Carrossel::with('produto')->get();
+        $carrossel = Carrossel::orderBy('posicao')->get();
         $cardVantagens = CardVantagem::where('status', 1)->orderBy('posicao')->get();
+        $produtos = Produto::orderBy('posicao')->get();
 
-        return view('site.home')->with(compact('menus', 'carrossel', 'cardVantagens'));
+        return view('site.home')->with(
+            compact('carrossel', 'cardVantagens', 'produtos')
+        );
     }
 
-    public function listaProdutos($categoria, $item)
+    public function produtos($categoria)
     {
-        $menus = MenuSite::with('categorias')->get();
-        $carrossel = Carrossel::with('produto')->get();
+        $carrossel = Carrossel::orderBy('posicao')->get();
+        $cardVantagens = CardVantagem::where('status', 1)->orderBy('posicao')->get();
+        $produtos = Produto::orderBy('posicao')->get();
 
-        return view('site.home')->with(compact('menus', 'carrossel'));
-//        dd(
-//            Categoria::with('categoriaItem')
-//            ->where('titulo', $categoria)
-//            ->get(),
-//            Produto::where('titulo', $item)->get()
-//        );
+        return view('site.home')->with(
+            compact('carrossel', 'cardVantagens', 'produtos')
+        );
+    }
+
+    public function produtoItem($categoria, $item)
+    {
+        $carrossel = Carrossel::orderBy('posicao')->get();
+        $cardVantagens = CardVantagem::where('status', 1)->orderBy('posicao')->get();
+        $produtos = Produto::orderBy('posicao')->get();
+
+        return view('site.home')->with(
+            compact('carrossel', 'cardVantagens', 'produtos')
+        );
     }
 
     public function contato()
     {
-        $menus = MenuSite::with('categorias')->get();
-        $carrossel = Carrossel::with('produto')->get();
+        $carrossel = Carrossel::orderBy('posicao')->get();
+        $cardVantagens = CardVantagem::where('status', 1)->orderBy('posicao')->get();
+        $produtos = Produto::orderBy('posicao')->get();
 
-        return view('site.home')->with(compact('menus', 'carrossel'));
+        return view('site.home')->with(
+            compact('carrossel', 'cardVantagens', 'produtos')
+        );
     }
 }

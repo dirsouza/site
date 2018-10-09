@@ -2,4 +2,33 @@
 .box {
     height: 130px !important;
     color: #326f34;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-link {
+    color: #000 !important;
+}
+
+.price {
+    color: #000 !important;
+}
+
+del::before {
+    content: 'R$ ' !important;
+}
+
+price::before {
+    content: 'R$ ';
+}
+
+.active {
+    color: #FFFFFF !important;
+}
+
+.activeItem {
+    color: #28a745 !important;
 }

@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Categoria extends Model
 {
     protected $table = 'categorias';
-    protected $fillable = ['menu_site_id', 'titulo', 'status'];
+    protected $fillable = ['menu_site_id', 'titulo', 'titulo_url', 'status'];
 
-    public function categoriaItem()
+    public function produto()
     {
-        return $this->hasMany(Produto::class, 'categoria_id')->where('status', 1);
+        return $this->hasMany(Produto::class)->where('status', 1);
     }
 }

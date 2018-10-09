@@ -30,6 +30,15 @@
 </head>
 <body>
 
+    <!-- navbar-->
+    <header class="header mb-5">
+
+        @include('site.includes.top')
+
+        @include('site.includes.navbar')
+
+    </header>
+
     @yield('content')
 
     <script src="{{ asset('public/jquery/jquery.min.js') }}"></script>

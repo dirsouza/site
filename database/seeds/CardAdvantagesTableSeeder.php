@@ -47,8 +47,8 @@ class CardAdvantagesTableSeeder extends Seeder
         ];
 
         foreach ($arrays as $array) {
-            $cadVantagens = DB::table('card_vantagens')->get();
-            if (!in_array($array['titulo'], $cadVantagens->toArray())) {
+            $cadVantagens = DB::table('card_vantagens')->where('titulo', $array['titulo'])->first();
+            if (empty($cadVantagens)) {
                 DB::table('card_vantagens')->insert($array);
             }
         }

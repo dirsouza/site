@@ -1,3 +1,3 @@
 <li class="nav-item">
-    <a href="{!! route($menu->url) !!}" class="nav-link{{$menu->setActive($menu->url)}}">{!! $menu->titulo !!}</a>
+    <a href="{!! route($menu->url) !!}" class="nav-link{{ $menu->menu_active }}">{!! $menu->titulo !!}</a>
 </li>

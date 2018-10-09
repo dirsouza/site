@@ -2,6 +2,7 @@
 
 namespace App\Http\Models\Site;
 
+use App\Helpers\FunctionsHelpers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Request;
 
@@ -12,15 +13,11 @@ class MenuSite extends Model
 
     public function categorias()
     {
-        return $this->hasMany(Categoria::class, 'menu_site_id')->where('status', 1);
+        return $this->hasMany(Categoria::class, 'menu_site_id')->where('status', 1)->orderBy('posicao');
     }
 
-    public function setActive($route)
+    public function getMenuActiveAttribute()
     {
-        if (is_array($route)) {
-            return in_array(Request::route()->getName(), $route) ? ' active' : '';
-        }
-
-        return Request::route()->getName() == $route ? ' active' : '';
+        return FunctionsHelpers::getUrlActive(Request::route()->getName()) == $this->url ? ' active' : '';
     }
 }

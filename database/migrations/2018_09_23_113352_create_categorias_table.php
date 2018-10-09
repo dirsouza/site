@@ -18,6 +18,8 @@ class CreateCategoriasTable extends Migration
             $table->unsignedInteger('menu_site_id');
             $table->foreign('menu_site_id')->references('id')->on('menu_site')->onDelete('cascade');
             $table->string('titulo', 100)->unique();
+            $table->string('titulo_url', 100)->unique();
+            $table->integer('posicao');
             $table->boolean('status')->default(1);
             $table->timestamps();
         });

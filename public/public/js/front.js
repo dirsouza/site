@@ -92,6 +92,9 @@ $(function () {
         return false;
     });
 
+    $('#login-modal').on('shown.bs.modal', function() {
+        $('#email-modal').trigger('focus');
+    });
 });
 
 
@@ -104,6 +107,16 @@ $(window).resize(function () {
     setTimeout(function () {
         $(this).alignElementsSameHeight();
     }, 150);
+});
+
+var num = $('.navbar').offset().top;
+
+$(window).bind('scroll', function () {
+    if ($(window).scrollTop() > num) {
+        $('.navbar').addClass('fixed-top');
+    } else {
+        $('.navbar').removeClass('fixed-top');
+    }
 });
 
 
@@ -226,7 +239,4 @@ $.fn.alignElementsSameHeight = function () {
         children.innerHeight(maxHeight);
 
     });
-
-
-
 }

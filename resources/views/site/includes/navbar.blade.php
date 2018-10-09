@@ -24,7 +24,8 @@
                                 @endif
                             @endforeach
                         </ul>
-                        @include('site.includs.card')
+                        @include('site.includes.card')
                     </div>
                 </div>
             </nav>
+

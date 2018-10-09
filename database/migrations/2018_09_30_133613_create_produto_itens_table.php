@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCarrosselTable extends Migration
+class CreateProdutoItensTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateCarrosselTable extends Migration
      */
     public function up()
     {
-        Schema::create('carrossel', function (Blueprint $table) {
+        Schema::create('produto_itens', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('produto_id');
             $table->foreign('produto_id')->references('id')->on('produtos')->onDelete('cascade');
             $table->string('titulo', 50)->unique();
-            $table->string('img', 100)->unique();
-            $table->integer('posicao');
+            $table->string('titulo_url', 50)->unique();
+            $table->string('descricao', 100);
+            $table->double('preco', 10, 2);
             $table->boolean('status')->default(1);
             $table->timestamps();
         });
@@ -32,6 +33,6 @@ class CreateCarrosselTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('carrossel');
+        Schema::dropIfExists('produto_itens');
     }
 }

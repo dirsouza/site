@@ -15,6 +15,8 @@ class CategoriasTableSeeder extends Seeder
             [
                 'menu_site_id'  => 2,
                 'titulo'        => 'Aves',
+                'titulo_url'    => 'aves',
+                'posicao'       => 2,
                 'status'        => 1,
                 'created_at'    => date('Y-m-d H:i:s'),
                 'updated_at'    => date('Y-m-d H:i:s')
@@ -22,6 +24,8 @@ class CategoriasTableSeeder extends Seeder
             [
                 'menu_site_id'  => 2,
                 'titulo'        => 'Acessórios',
+                'titulo_url'    => 'acessorios',
+                'posicao'       => 1,
                 'status'        => 1,
                 'created_at'    => date('Y-m-d H:i:s'),
                 'updated_at'    => date('Y-m-d H:i:s')
@@ -29,8 +33,8 @@ class CategoriasTableSeeder extends Seeder
         ];
 
         foreach ($arrays as $array) {
-            $categorias = DB::table('categorias')->get();
-            if (in_array($array['titulo'], $categorias->toArray())) {
+            $categorias = DB::table('categorias')->where('titulo', $array['titulo'])->first();
+            if (empty($categorias)) {
                 DB::table('categorias')->insert($array);
             }
         }

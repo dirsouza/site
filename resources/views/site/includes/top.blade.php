@@ -6,8 +6,8 @@
                     <div class="col-lg-12 text-right">
                         <ul class="menu list-inline mb-0">
                             <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#login-modal">Entrar</a></li>
-                            <li class="list-inline-item"><a href="register.html">Registrar</a></li>
-                            <li class="list-inline-item"><a href="contact.html">Contato</a></li>
+                            <li class="list-inline-item"><a href="{{ route('site.registrar') }}">Registrar</a></li>
+                            <li class="list-inline-item"><a href="{{ route('site.contato') }}">Contato</a></li>
                         </ul>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
                             <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
                         </div>
                         <div class="modal-body">
-                            <form action="customer-orders.html" method="post">
+                            <form action="{{ route('site.entrar') }}" method="post">
                                 <div class="form-group">
                                     <input id="email-modal" type="text" placeholder="E-mail" class="form-control">
                                 </div>
@@ -32,7 +32,7 @@
                                 </p>
                             </form>
                             <p class="text-center text-muted">Não é registrado?</p>
-                            <p class="text-center text-muted"><a href="register.html"><strong>Registre-se</strong></a>! É fácil e leva menos de 1 minuto!</p>
+                            <p class="text-center text-muted"><a href="{{ route('site.registrar') }}"><strong>Registre-se</strong></a>! É fácil e leva menos de 1 minuto!</p>
                         </div>
                     </div>
                 </div>
@@ -40,9 +40,4 @@
             {{--TOP BAR END--}}
         </div>
 
-@push('scripts')
-    <script>
-        // implementar login via api
-    </script>
-@endpush
 

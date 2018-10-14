@@ -12,25 +12,26 @@
     </div>
     <div class="container">
         <div class="product-slider owl-carousel owl-theme">
-        @foreach($produtos as $produto)
+    @foreach($categorias as $categoria)
+        @foreach($categoria->produtos as $produto)
             @foreach($produto->itens as $item)
             <div class="item">
                 <div class="product">
                     <div class="flip-container">
                         <div class="flipper">
                             <div class="front">
-                                <a href="{{ route('site.produtos', [$produto->categoria->titulo_url, $item->titulo_url]) }}">
+                                <a href="{{ route('site.categoria.subcategoria.item', [$categoria->titulo_url, $produto->titulo_url, $item->titulo_url]) }}">
                                     <img src="{{ asset('public/img/'.$item->imagens[0]->imagem) }}" alt="" class="img-fluid">
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <a href="{{ route('site.produtos', [$produto->categoria->titulo_url, $item->titulo_url]) }}" class="invisible">
+                    <a href="{{ route('site.categoria.subcategoria.item', [$categoria->titulo_url, $produto->titulo_url, $item->titulo_url]) }}" class="invisible">
                         <img src="{{ asset('public/img/'.$item->imagens[0]->imagem) }}" alt="" class="img-fluid">
                     </a>
                     <div class="text">
                         <h3>
-                            <a href="{{ route('site.produtos', [$produto->categoria->titulo_url, $item->titulo_url]) }}">
+                            <a href="{{ route('site.categoria.subcategoria.item', [$categoria->titulo_url, $produto->titulo_url, $item->titulo_url]) }}">
                                 {{ $item->descricao }}
                             </a>
                         </h3>
@@ -44,11 +45,11 @@
                         @endif
                         </p>
                         <p class="buttons">
-                            <a href="{{ route('site.produtos', [$produto->categoria->titulo_url, $item->titulo_url]) }}" class="btn btn-outline-secondary">
+                            <a href="{{ route('site.categoria.subcategoria.item', [$categoria->titulo_url, $produto->titulo_url, $item->titulo_url]) }}" class="btn btn-outline-secondary hvr-glow">
                                 Ver detalhes
                             </a>
-                            <a href="basket.html" class="btn btn-primary">
-                                <i class="fa fa-shopping-cart"></i>Adicionar
+                            <a href="basket.html" class="btn btn-primary hvr-icon-back hvr-glow">
+                                <i class="fa fa-shopping-cart hvr-icon"></i>Adicionar
                             </a>
                         </p>
                     </div>
@@ -64,6 +65,7 @@
             </div>
             @endforeach
         @endforeach
+    @endforeach
             <!-- /.product-slider-->
         </div>
         <!-- /.container-->

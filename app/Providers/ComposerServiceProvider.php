@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Models\Site\Categoria;
 use App\Http\Models\Site\MenuSite;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
@@ -16,7 +17,10 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer(['site.home'], function($view) {
-            $view->with('menus', MenuSite::all());
+            $view->with([
+                'menus' => MenuSite::all(),
+                'categorias' => Categoria::orderBy('posicao')->get()
+            ]);
         });
     }
 

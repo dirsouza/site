@@ -9,7 +9,7 @@ class Categoria extends Model
     protected $table = 'categorias';
     protected $fillable = ['menu_site_id', 'titulo', 'titulo_url', 'status'];
 
-    public function produto()
+    public function produtos()
     {
         return $this->hasMany(Produto::class)->where('status', 1);
     }

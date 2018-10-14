@@ -32,3 +32,7 @@ price::before {
 .activeItem {
     color: #28a745 !important;
 }
+
+#footer {
+    padding: 30px 0 !important;
+}

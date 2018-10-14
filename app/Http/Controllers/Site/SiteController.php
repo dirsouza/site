@@ -21,43 +21,54 @@ class SiteController extends Controller
     {
         $carrossel = Carrossel::orderBy('posicao')->get();
         $cardVantagens = CardVantagem::where('status', 1)->orderBy('posicao')->get();
-        $produtos = Produto::orderBy('posicao')->get();
 
-        return view('site.home')->with(
-            compact('carrossel', 'cardVantagens', 'produtos')
-        );
+        return view('site.home')->with([
+            'carrossel'     => $carrossel,
+            'cardVantagens' => $cardVantagens
+        ]);
     }
 
-    public function produtos($categoria)
+    public function categoria($categoria)
     {
         $carrossel = Carrossel::orderBy('posicao')->get();
         $cardVantagens = CardVantagem::where('status', 1)->orderBy('posicao')->get();
-        $produtos = Produto::orderBy('posicao')->get();
 
-        return view('site.home')->with(
-            compact('carrossel', 'cardVantagens', 'produtos')
-        );
+        return view('site.home')->with([
+            'carrossel'     => $carrossel,
+            'cardVantagens' => $cardVantagens
+        ]);
     }
 
-    public function produtoItem($categoria, $item)
+    public function categoriaSubCategoria($categoria, $subcategoria)
     {
         $carrossel = Carrossel::orderBy('posicao')->get();
         $cardVantagens = CardVantagem::where('status', 1)->orderBy('posicao')->get();
-        $produtos = Produto::orderBy('posicao')->get();
 
-        return view('site.home')->with(
-            compact('carrossel', 'cardVantagens', 'produtos')
-        );
+        return view('site.home')->with([
+            'carrossel'     => $carrossel,
+            'cardVantagens' => $cardVantagens
+        ]);
+    }
+
+    public function categoriaSubCategoriaItem($categoria, $subcategoria, $item)
+    {
+        $carrossel = Carrossel::orderBy('posicao')->get();
+        $cardVantagens = CardVantagem::where('status', 1)->orderBy('posicao')->get();
+
+        return view('site.home')->with([
+            'carrossel'     => $carrossel,
+            'cardVantagens' => $cardVantagens
+        ]);
     }
 
     public function contato()
     {
         $carrossel = Carrossel::orderBy('posicao')->get();
         $cardVantagens = CardVantagem::where('status', 1)->orderBy('posicao')->get();
-        $produtos = Produto::orderBy('posicao')->get();
 
-        return view('site.home')->with(
-            compact('carrossel', 'cardVantagens', 'produtos')
-        );
+        return view('site.home')->with([
+            'carrossel'     => $carrossel,
+            'cardVantagens' => $cardVantagens
+        ]);
     }
 }

@@ -18,7 +18,7 @@
                         <ul class="navbar-nav mr-auto">
                             @foreach($menus as $menu)
                                 @if ($menu->categorias->count() > 0)
-                                    @component('site.components.subMenu', ['menu' => $menu]) @endcomponent
+                                    @component('site.components.subMenu', ['menu' => $menu, 'categorias' => $categorias]) @endcomponent
                                 @else
                                     @component('site.components.menu', ['menu' => $menu]) @endcomponent
                                 @endif

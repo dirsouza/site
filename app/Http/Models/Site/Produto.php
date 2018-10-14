@@ -22,8 +22,8 @@ class Produto extends Model
 
     public function getSubMenuActiveAttribute()
     {
-        if (isset(Request::route()->parameters['item'])) {
-            return Request::route()->parameters['item'] == $this->titulo_url ? ' activeItem' : null;
+        if (isset(Request::route()->parameters['subCategoria'])) {
+            return Request::route()->parameters['subCategoria'] == $this->titulo_url ? ' activeItem' : null;
         }
     }
 }
